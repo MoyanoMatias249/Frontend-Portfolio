@@ -6,11 +6,18 @@ import '../styles/about.css';
 
 function About() {
   const [texto, setTexto] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function cargarAbout() {
-      const data = await fetchAbout();
-      setTexto(data.texto);
+      try {
+        const data = await fetchAbout();
+        setTexto(data.texto || '');
+      } catch (error) {
+        console.error("Error al cargar About:", error);
+      } finally {
+        setLoading(false);
+      }
     }
     cargarAbout();
   }, []);
@@ -24,10 +31,9 @@ function About() {
       >
         Sobre mí
       </motion.h2>
-      <p>{texto ? texto : "Sin datos disponibles"}
+      <p>
+        {loading ? "Cargando..." : texto || "Sin datos disponibles"}
       </p>
     </section>
   );
 }
-
-export default About;
