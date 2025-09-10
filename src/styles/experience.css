@@ -1,0 +1,9 @@
+#experience {
+    padding: 2em 15vw;
+}
+
+@media screen and (max-width:400px) {
+    #experience {
+        padding: 2em 1em;
+    }
+}

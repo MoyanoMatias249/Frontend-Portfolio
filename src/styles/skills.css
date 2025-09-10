@@ -1,0 +1,71 @@
+#skills h3{
+    text-align: center;
+}
+#skills {
+    padding: 2em 15vw;
+}
+
+#skills ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    cursor: pointer;
+}
+
+#skills li{
+    transition: scale .5s, border .5s, color .25s ;
+}
+
+#skills li:hover:not(.selected) {
+    color: var(--blue-1);
+}
+
+#skills .selected{
+    font-weight: bold;
+    scale: 1.1;
+    color: var(--black-1);
+    border-bottom: .1em solid var(--black-1);
+}
+
+.skill-detail{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    width: 100%;
+}
+
+.skill-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-img img{
+    max-width: 100%;
+    width: 250px;
+}
+
+
+@media screen and (max-width:500px) {
+    #skills {
+        padding: 2em 1em;
+        min-height: 28em;
+        padding: 1em;
+    }
+
+    .skill-detail{
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+    }
+
+    .skill-img img{
+        max-width: 100%;
+        width: 200px;
+    }
+}

@@ -1,0 +1,89 @@
+#projects {
+    padding: 2em 15vw;
+}
+
+#projects h3{
+    text-align: center;
+}
+
+#projects button{
+    background-color: var(--black-1);
+    color: var(--white-1);
+    padding: .5em 4em;
+    border: .1em solid var(--black-1);
+    outline: none;
+}
+
+#projects button:hover{
+    border-color: var(--white-1);
+    filter: drop-shadow(0 0 .2em var(--blue-1));
+    background-color: var(--black-2);
+}
+
+#projects button{
+    background-color: var(--black-1);
+    color: var(--white-1);
+    padding: .5em 4em;
+    border: .1em solid var(--black-1);
+    outline: none;
+}
+
+#projects button:hover{
+    border-color: var(--white-1);
+    filter: drop-shadow(0 0 .2em var(--blue-1));
+    background-color: var(--black-2);
+}
+
+
+.project-card{
+    position: relative;
+    background-size: cover;
+    background-position: top;
+    border-radius: 1em;
+    overflow: hidden;
+    margin-bottom: 2em;
+    box-shadow: 0 0 1em #0004;
+    min-height: 300px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.project-info{
+    background-color: #0009; /* Fondo opaco */
+    color: var(--white-1);
+    padding: 1em;
+    width: 100%;
+    backdrop-filter: blur(4px); /* Opcional: efecto de desenfoque */
+}
+
+.project-info h4 {
+  margin-top: 0;
+}
+
+.project-info ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.project-info a {
+  display: inline-block;
+  margin-top: 1em;
+  color: var(--white-1);
+  transition: color .25s;
+}
+
+.project-info a:hover {
+  color: var(--blue-1);
+  text-decoration: underline;
+}
+
+
+
+@media screen and (max-width:400px) {
+    #projects {
+        padding: 2em 1em;
+    }
+}

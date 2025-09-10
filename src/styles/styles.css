@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+  
+section {
+  padding: 2rem;
+  border-bottom: .1em solid var(--white-4);
+  background-color: var(--white-2);
+  min-height: 20em;
+}
+
