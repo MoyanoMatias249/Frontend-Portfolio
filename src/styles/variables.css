@@ -1,8 +1,10 @@
 :root{
+    --black-0: #1a1a1a;
     --black-1: #292929;
     --black-2: #3d3d3d;
     --black-3: #464646;
     --black-4: #525252;
+    --black-opacity: #00000099;
 
     --white-1: #f8f8f8;
     --white-2: #eeeeee;
@@ -13,4 +15,12 @@
     --blue-2: #00b4d8;
     --blue-3: #0a7394;
     --blue-4: #144d65; 
+    --blue-opacity: #00224488;
+
+    --red-1: #fe4011;
+    --red-2: #ef2607;
+    --red-3: #9d150f;
+    --red-4: #440606; 
+    --red-opacity: #44000088;
+    --error-message: #ef2607;
 }

@@ -1,0 +1,118 @@
+body.modal-abierto {
+  overflow: hidden;
+}
+.admin-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--blue-opacity);
+    backdrop-filter: blur(.2em);
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+}
+
+.admin-modal {
+    background: var(--black-1);
+    padding: 2em;
+    border-radius: 1em;
+    width: 80%;
+    max-width: 30em;
+    text-align: center;
+    max-height: 90vh;
+    animation: modal 1s both;
+    color: var(--white-4);
+    margin: 0 2em;
+}
+
+.admin-modal form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.admin-modal label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.admin-modal p{
+    margin: 0;
+}
+.admin-modal input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.8em;
+    margin-top: 1em;
+    border-radius:  0 0 1em 0;
+    border-left: .5em solid var(--black-4);
+    background-color: var(--white-1);
+    transition: border .25s, filter .1s;
+}
+
+.admin-modal input:focus {
+    border-left: 1em solid var(--blue-3);
+    filter: drop-shadow(0 0 .2em var(--blue-3));
+}
+
+.admin-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    justify-content: space-between;
+}
+
+.admin-modal button {
+    margin-top: 1em;
+    padding: 0.6em 1.2em;
+    background-color: var(--black-2);
+    color: var(--white-1);
+    border: none;
+    cursor: pointer;
+    flex-grow: 1;
+    transition: background-color .75s, filter .1s;
+}
+
+.admin-modal button:hover{
+    background-color: var(--blue-3);
+    filter: drop-shadow(0 0 .2em var(--blue-3));
+}
+
+.feedback {
+  height: 1em;
+  margin-top: 0.5em;
+  font-weight: bold;
+}
+
+.feedback.success {
+  color: var(--blue-1); /* por ejemplo, verde claro */
+}
+
+.feedback.error {
+  color: var(--error-message); /* ya lo tenés definido */
+}
+
+
+@keyframes modal {
+    0%{
+        border: .2em solid var(--black-1);
+    }
+    50%{
+        border: .2em solid var(--black-4);
+        filter: drop-shadow(0 0 .2em var(--blue-1));
+    }
+    100%{
+        border: .2em solid var(--white-1);
+        filter: drop-shadow(0 0 1em var(--blue-1));
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .admin-buttons{
+        flex-direction: column;
+        gap: 0;
+    }
+}

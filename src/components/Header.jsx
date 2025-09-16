@@ -1,13 +1,37 @@
 // frontend/src/components/Header.jsx
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useAdmin } from '../context/AdminContext';
+import AdminModal from './AdminModal';
 import '../styles/header.css';
 
 function Header() {
+  const { isAdmin, setIsAdmin } = useAdmin();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAdminToggle = () => {
+    if (isAdmin) {
+      setIsAdmin(false);
+      setMenuOpen(false);
+    } else {
+      setShowModal(true);
+    }
+  };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 800) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   
-  return (
+  return (<>
+    {showModal && <AdminModal onClose={() => setShowModal(false)} />}
     <motion.header
       className="header"
       initial={{ y: -80, opacity: 0 }}
@@ -20,7 +44,10 @@ function Header() {
         damping: 12
       }}
     >
-      <h1>Mi Portfolio</h1>
+      <div className='titulo'>
+        <h1>Mi Portfolio</h1>
+        <p>{isAdmin ? '(Modo admin)' : ''}</p>
+      </div>
       
       <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
          <span className="material-symbols-outlined">menu</span>
@@ -39,10 +66,15 @@ function Header() {
         <Link to="/contact" onClick={() => setMenuOpen(false)}>
           <span className="material-symbols-outlined">mail</span> Contacto
         </Link>
+        <a onClick={handleAdminToggle}>
+            <span className="material-symbols-outlined">
+              {isAdmin ? 'edit_off' : 'ink_pen'}
+            </span>
+            {menuOpen ? (isAdmin ? 'Salir Admin' : 'Admin') : ''}
+          </a>
       </nav>
     </motion.header>
-  );
+  </>);
 }
-
 
 export default Header;

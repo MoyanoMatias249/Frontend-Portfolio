@@ -3,9 +3,115 @@
     text-align: justify;
 }
 
+#about .exp-actions {
+    display: inline-flex;
+    gap: 0.5em;
+}
+
+#about button{
+    color: var(--blue-2);
+    transition: background-color .25s, filter .05s, color .2s;
+}
+
+#about button:hover{
+    background-color: var(--blue-3);
+    filter: drop-shadow(0 0 .2em var(--blue-3));
+    color: var(--white-2);
+}
+
+
+#about .add-button button{
+    display: flex;
+    align-items: center;
+    gap: .3em;
+}
+
+#about .add-about{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#about .about-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#about .add-about label,#about .add-about p,#about .add-about textarea{
+    margin: 0;
+}
+
+#about .add-about label{
+    width: 100%;
+}
+
+#about .add-about textarea{
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0 0 1em 0;
+    border-left: .2em solid var(--black-4);
+    transition: filter .25s;
+}
+
+#about .add-about textarea:focus{
+    filter: drop-shadow(0 0 .2em var(--blue-2));
+}
+
+#about .form-buttons{
+    display: inline-flex;
+    gap: 2em;
+}
+
+#about .form-buttons button{
+    color: var(--white-2);
+}
+
+#about .form-buttons button:hover{
+    background-color: var(--black-3);
+}
+
+#about .feedback-error {
+  color: var(--red-2);
+}
+
+#about .feedback-exito {
+  color: var(--blue-2);
+}
+@media screen and (max-width:500px) { 
+    #about .exp-actions {
+        display: flex;
+        justify-content:end;
+    }
+
+    #about .form-buttons{
+        flex-direction: column;
+        gap: .5em;
+    }
+
+    #about .form-buttons{
+        width: 100%;
+    }
+}
 
 @media screen and (max-width:400px) {
     #about {
         padding: 2em 1em;
+    }
+
+    #about .add-button button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #about .form-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #about .form-buttons button {
+        flex-grow: 1;
     }
 }

@@ -1,0 +1,78 @@
+.confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--red-opacity);
+    backdrop-filter: blur(.2em);
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+}
+
+.confirm-modal {
+    background: var(--black-1);
+    padding: 2em;
+    border-radius: 1em;
+    width: 80%;
+    max-width: 30em;
+    text-align: center;
+    max-height: 90vh;
+    animation: modal-delete 1s both;
+    color: var(--white-4);
+    margin: 0 2em;
+}
+
+.confirm-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    justify-content: space-between;
+}
+
+.confirm-buttons button {
+    margin-top: 1em;
+    padding: 0.6em 1.2em;
+    background-color: var(--black-2);
+    color: var(--white-1);
+    border: none;
+    cursor: pointer;
+    flex-grow: 1;
+    transition: background-color .25s, filter .05s;
+}
+
+.confirm-buttons button:hover {
+    background-color: var(--red-3);
+    filter: drop-shadow(0 0 .2em var(--red-3));
+}
+
+
+@keyframes modal-delete {
+    0%{
+        border: .2em solid var(--black-1);
+    }
+    50%{
+        border: .2em solid var(--black-4);
+        filter: drop-shadow(0 0 .2em var(--red-1));
+    }
+    100%{
+        border: .2em solid var(--white-1);
+        filter: drop-shadow(0 0 1em var(--red-1));
+    }
+}
+
+@media screen and (max-width:500px) {
+    .confirm-modal{
+        width: 100%;
+    }
+
+    .confirm-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0em;
+        max-width:17em;
+        margin: auto;
+        justify-content: space-between;
+    }
+}

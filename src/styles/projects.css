@@ -1,23 +1,11 @@
 #projects {
     padding: 2em 15vw;
+    z-index: 1;
+    position: relative;
 }
 
 #projects h3{
     text-align: center;
-}
-
-#projects button{
-    background-color: var(--black-1);
-    color: var(--white-1);
-    padding: .5em 4em;
-    border: .1em solid var(--black-1);
-    outline: none;
-}
-
-#projects button:hover{
-    border-color: var(--white-1);
-    filter: drop-shadow(0 0 .2em var(--blue-1));
-    background-color: var(--black-2);
 }
 
 #projects button{
@@ -42,18 +30,26 @@
     border-radius: 1em;
     overflow: hidden;
     margin-bottom: 2em;
-    box-shadow: 0 0 1em #0004;
+    box-shadow: 0 0 1em var(--black-opacity);
     min-height: 300px;
     display: flex;
     align-items: flex-end;
 }
 
 .project-info{
-    background-color: #0009; /* Fondo opaco */
+    background-color: var(--black-opacity); /* Fondo opaco */
     color: var(--white-1);
     padding: 1em;
     width: 100%;
     backdrop-filter: blur(4px); /* Opcional: efecto de desenfoque */
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: end;
+}
+
+.project-desciption{
+    flex-grow: 10;
 }
 
 .project-info h4 {
@@ -81,9 +77,204 @@
 }
 
 
+#projects .add-project{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+#projects .add-project label, #projects .add-project p, #projects .add-project input{
+    margin: 0;
+}
 
-@media screen and (max-width:400px) {
-    #projects {
-        padding: 2em 1em;
-    }
+#projects .add-project label{
+    width: 100%;
+    max-width: 40em;
+}
+
+#projects .add-project input{
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0 0 1em 0;
+    border-left: .5em solid var(--black-4);
+    transition: border .25s;
+}
+
+#projects .add-project input:focus{
+    border-left: 1em solid var(--blue-3)
+}
+
+#projects .add-project .input-error{
+    border-left: .5em solid var(--red-3);
+}
+
+#projects .add-project select {
+  width: 8em;
+  padding: 0.5em 1em;
+  border: .2em solid var(--black-2);
+  border-radius: .4em .4em 0 0;
+  background-color: var(--black-0);
+  color: var(--white-1);
+  font-family: inherit;
+  font-size: 1em;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.8em center;
+  background-size: 1em;
+  cursor: pointer;
+}
+
+#projects .add-project .inputs-tecnologias{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+  max-width: 40em;
+}
+
+#projects .add-project .input-cant {
+  max-width: 15em;
+  flex-grow: 1;
+  width: 100%;
+}
+
+#projects .feedback-error {
+  color: var(--red-2);
+}
+
+#projects .feedback-exito {
+  color: var(--blue-2);
+}
+
+
+#projects .form-buttons{
+    display: inline-flex;
+    width: 10em;
+    gap: 2em;
+}
+
+
+#projects .form-buttons button{
+    color: var(--white-2);
+    background-color: var(--black-0);
+    max-width: 20em;
+    padding: 1em;
+}
+
+#projects .form-buttons button:hover{
+    background-color: var(--black-3);
+}
+#projects .edit-delete-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5em;
+  flex-shrink: 0;
+}
+
+#projects .edit-delete-buttons button {
+  background-color: transparent;
+  border: none;
+  color: var(--white-1);
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 0.2em;
+  transition: transform 0.2s;
+}
+
+#projects .edit-delete-buttons button:hover {
+  transform: scale(1.1);
+  color: var(--blue-1);
+  filter: drop-shadow(0 0 .2em var(--blue-1));
+}
+
+#projects .edit-delete-buttons .delete:hover {
+  transform: scale(1.1);
+  color: var(--red-1);
+  filter: drop-shadow(0 0 .2em var(--red-1));
+}
+
+#projects .bottom-actions{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+#projects .bottom-actions button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  width: 12.5em;
+  padding: 0;
+  background-color: var(--black-0);
+}
+
+@media screen and (max-width: 500px) {
+  #projects .bottom-actions{
+    flex-direction: column;
+    align-items: normal;
+    justify-content: center;
+    width: 100%;
+  }
+  #projects .bottom-actions button{
+    width: 100%;
+  }
+
+  #projects .form-buttons{
+      flex-direction: column;
+      gap: .5em;
+  }
+
+  #projects .form-buttons{
+      width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  #projects {
+    padding: 2em 1em;
+  }
+  #projects button{
+    width: 100%;
+    height: 3em;
+  }
+  .project-card{
+    min-height: 25em;
+  }
+
+  .project-info {
+    flex-direction: column;
+    align-items: flex-start;
+  } 
+
+  #projects .edit-delete-buttons {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 3em;
+  }
+  
+  #projects .edit-delete-buttons a{
+    width: 100%;
+  }
+
+  #projects .edit-delete-buttons button {
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: 1px solid var(--white-1);
+    border-radius: 0.3em;
+  }
+
+  #projects .edit-delete-buttons button:hover{
+    border: 1px solid var(--blue-1);
+  }
+
+  #projects .edit-delete-buttons .delete:hover{
+    border: 1px solid var(--red-1);
+  }
+
 }

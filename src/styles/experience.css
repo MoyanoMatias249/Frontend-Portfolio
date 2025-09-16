@@ -2,6 +2,140 @@
     padding: 2em 15vw;
 }
 
+#experience ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#experience li{
+    display: flex;
+    justify-content: space-between;
+}
+
+#experience .exp-actions {
+    display: inline-flex;
+    gap: 0.5em;
+}
+
+#experience button{
+    color: var(--blue-2);
+    transition: background-color .25s, filter .05s, color .2s;
+}
+
+#experience button:hover{
+    background-color: var(--blue-3);
+    filter: drop-shadow(0 0 .2em var(--blue-3));
+    color: var(--white-2);
+}
+
+#experience .delete{
+    color: var(--red-2);
+}
+
+#experience .delete:hover{
+    background-color: var(--red-3);
+    filter: drop-shadow(0 0 .2em var(--red-3));
+    color: var(--white-2);
+}
+
+#experience .add-button button{
+    display: flex;
+    align-items: center;
+    gap: .3em;
+    color: var(--white-2);
+}
+
+#experience .add-button button:hover{
+    background-color: var(--black-2);
+}
+
+#experience .add-experience{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+#experience .add-experience label, #about .add-about p, #about .add-about input{
+    margin: 0;
+}
+
+#experience .add-experience label{
+    width: 100%;
+    max-width: 40em;
+}
+
+#experience .add-experience input{
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0 0 1em 0;
+    border-left: .5em solid var(--black-4);
+    transition: border .25s;
+}
+
+#experience .add-experience input:focus{
+    border-left: 1em solid var(--blue-3)
+}
+
+#experience .add-experience .input-error{
+    border-left: .5em solid var(--red-3);
+}
+
+
+#experience .form-buttons{
+    display: inline-flex;
+    width: 10em;
+    gap: 2em;
+}
+
+#experience .form-buttons button{
+    color: var(--white-2);
+    background-color: var(--black-0);
+    max-width: 20em;
+    padding: 1em;
+}
+
+#experience .form-buttons button:hover{
+    background-color: var(--black-3);
+}
+
+#experience .feedback-error {
+  color: var(--red-2);
+}
+
+#experience .feedback-exito {
+  color: var(--blue-2);
+}
+
+@media screen and (max-width:500px) { 
+     #experience ul{
+        padding: 0;
+    }         
+
+    #experience li{
+        padding: 0;
+        flex-direction: column;
+    }      
+
+    #experience .exp-actions {
+        display: flex;
+        justify-content:end;
+    }
+
+    #experience .add-button button{
+        width: 100%;
+        justify-content: center;
+    }
+
+    #experience .form-buttons{
+      flex-direction: column;
+      gap: .5em;
+    }
+
+    #experience .form-buttons{
+        width: 100%;
+    }
+}
+
 @media screen and (max-width:400px) {
     #experience {
         padding: 2em 1em;

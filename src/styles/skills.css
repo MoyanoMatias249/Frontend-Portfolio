@@ -3,6 +3,10 @@
 }
 #skills {
     padding: 2em 15vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1em
 }
 
 #skills ul{
@@ -48,10 +52,161 @@
 .skill-img img{
     max-width: 100%;
     width: 250px;
+    height: 250px;
+    object-fit: contain;
+    background: radial-gradient(circle, var(--white-1) 0%, var(--white-3) 100%);
+    border-radius: 1em;
+}
+
+#skills .edit-delete-buttons {
+    display: inline-flex;
+    width: 12.2em;
+    gap: .5em;
+}
+
+#skills .admin-actions{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+#skills a{
+    width: 100%;
+    display: flex;
+}
+
+#skills button{
+    box-sizing: border-box;
+    height: 3em;
+    flex-grow: 1;
+    color: var(--blue-2);
+    transition: background-color .25s, filter .05s, color .2s;
+}
+
+#skills button:hover{
+    background-color: var(--blue-3);
+    filter: drop-shadow(0 0 .2em var(--blue-3));
+    color: var(--white-2);
+}
+
+#skills .delete{
+    color: var(--red-2);
+}
+
+#skills .delete:hover{
+    background-color: var(--red-3);
+    filter: drop-shadow(0 0 .2em var(--red-3));
+    color: var(--white-2);
+}
+
+#skills .add-button a{
+    width: fit-content;
 }
 
 
+#skills .add-button button{
+    display: flex;
+    align-items: center;
+    gap: .3em;
+    color: var(--white-1);
+}
+
+#skills .add-button button:hover{
+    background-color: var(--black-3);
+}
+
+#skills .add-skill{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+#skills .add-skill label, #skills .add-skill p, #skills .add-skill input{
+    margin: 0;
+}
+
+#skills .add-skill label{
+    width: 100%;
+    max-width: 40em;
+}
+
+#skills .add-skill input{
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0 0 1em 0;
+    border-left: .5em solid var(--black-4);
+    transition: border .25s;
+}
+
+#skills .add-skill input:focus{
+    border-left: 1em solid var(--blue-3)
+}
+
+#skills .add-skill .input-error{
+    border-left: .5em solid var(--red-3);
+}
+
+#skills .form-buttons{
+    display: inline-flex;
+    width: 10em;
+    gap: 2em;
+}
+
+#skills .form-buttons button{
+    color: var(--white-2);
+}
+
+#skills .form-buttons button:hover{
+    background-color: var(--black-3);
+}
+
+#skills .feedback-error {
+  color: var(--red-2);
+}
+
+#skills .feedback-exito {
+  color: var(--blue-2);
+}
+
 @media screen and (max-width:500px) {
+    .skill-img img{  
+        width: 200px;
+        height: 200px;
+    }
+    #skills .edit-delete-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #skills .admin-actions{
+        width: 100%;
+    }
+
+    #skills .add-button a{
+        width: 100%;
+    }
+
+    #skills .add-button button{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #skills .add-button button:hover{
+        background-color: var(--black-3);
+    }
+     #skills .form-buttons{
+        flex-direction: column;
+        gap: .5em;
+    }
+
+    #skills .form-buttons{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width:400px) {
     #skills {
         padding: 2em 1em;
         min-height: 28em;
@@ -59,13 +214,35 @@
     }
 
     .skill-detail{
-        flex-direction: column;
-        justify-content: left;
-        align-items: left;
+        width: 100%;
     }
 
     .skill-img img{
-        max-width: 100%;
-        width: 200px;
+        width: 125px;
+        height: 125px;
+    }
+
+    #skills li{
+        background-color: var(--black-0);
+        color: var(--white-3);
+        border-radius: 1em 1em 0 0;
+        width: 100%;
+        max-width: 6em;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+    }
+
+    #skills li:hover:not(.selected) {
+        color: var(--white-1);
+    }
+
+    #skills .selected{
+        font-weight: bold;
+        scale: 1.1;
+        color: var(--blue-2);
+        border-bottom: .1em solid var(--blue-2);
+        filter: drop-shadow(0 0 .2em var(--blue-2));
     }
 }

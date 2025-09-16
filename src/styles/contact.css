@@ -56,5 +56,5 @@ input:focus, textarea:focus{
 .feedback-message {
   margin-top: 10px;
   font-size: 0.95rem;
-  color: var(--blue-3); /* verde éxito */
+  color: var(--blue-3);
 }
