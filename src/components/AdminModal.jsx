@@ -19,20 +19,20 @@ function AdminModal({ onClose }) {
     }, []);
 
     const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    await verificarAdmin(password);
-    setIsAdmin(true);
-    setSuccess(true);
-    setFeedback('Modo admin activado');
-    setTimeout(() => {
-      onClose();
-    }, 1250);
-  } catch (error) {
-    setSuccess(false);
-    setFeedback(error.message || 'Error al verificar');
-  }
-};
+      e.preventDefault();
+      try {
+        await verificarAdmin(password);
+        setIsAdmin(true);
+        setSuccess(true);
+        setFeedback('Modo admin activado');
+        setTimeout(() => {
+          onClose();
+        }, 1250);
+      } catch (error) {
+        setSuccess(false);
+        setFeedback(error.message || 'Error al verificar');
+      }
+    };
 
   return (
     <motion.div

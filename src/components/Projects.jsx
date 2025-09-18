@@ -1,12 +1,7 @@
 // frontend/src/components/Projects.jsx
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  fetchProjects,
-  addProject,
-  updateProject,
-  deleteProject
-} from '../services/api';
+import { fetchProjects, addProject, updateProject, deleteProject } from '../services/api';
 import ConfirmModal from './ConfirmModal';
 import { useAdmin } from '../context/AdminContext';
 import '../styles/projects.css';
