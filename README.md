@@ -1,12 +1,25 @@
-# React + Vite
+# Frontend – Portfolio en React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es el frontend de mi portfolio personal, desarrollado en React.
 
-Currently, two official plugins are available:
+## Conexión con el backend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El frontend consume dos variantes de API:
 
-## Expanding the ESLint configuration
+- `api.js`: conecta con funciones serverless desplegadas en Supabase.
+- `api-local.js`: conecta con el backend Express corriendo localmente.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Funcionalidades
+
+- Visualización de secciones: About, Experience, Projects, Skills, Contact.
+- Envío de mensajes desde el formulario de contacto.
+- Panel de administración con login por email y contraseña.
+
+## Desarrollo local
+
+Para testear funcionalidades como envío de mails o encriptación, usar `api-local.js` y correr el backend Express en `localhost:3001`.
+
+## Producción
+
+En producción se usa `api.js`, que invoca funciones HTTP desplegadas en Supabase.
+
